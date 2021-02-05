@@ -20,7 +20,7 @@ public:
 	}
 
 	void setTitle(string race) { this->m_tClass = race; }
-	string getName()const { return m_tClass + "" + Character::getName(); }
+	virtual string getName()const { return m_tClass + "" + Character::getName(); }
 	string getAbility() { return m_tAbility; }
 	string getAttack() { return m_tAttack; }
 	string getStats() { return m_tStats; }

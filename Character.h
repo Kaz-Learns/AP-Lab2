@@ -12,12 +12,15 @@ private:
 	string m_name;
 	int m_health;
 	Weapon* weapon[4];
-	void DisplayInfo();
+	
 
 public:
 	//Constructors
 	Character() { setName(""); }
 	Character(string cName, Weapon w) { setName(cName); }
+
+	//member function
+	virtual void DisplayInfo();
 
 	//Getters and Setters
 	void setName(string cName) { m_name = cName; }
