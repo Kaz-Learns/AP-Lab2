@@ -14,13 +14,14 @@ private:
 	string m_tStats = "Plus 20 to resilience";
 
 public:
-	Titan(string cname, Weapon w, string race) :Character(cname, w)
+	Titan() {};
+	/*Titan(string cname, Weapon w, string race) :Character(cname, w)
 	{
 		setTitle(race);
-	}
+	}*/
 
-	void setTitle(string race) { this->m_tClass = race; }
-	virtual string getName()const { return m_tClass + "" + Character::getName(); }
+	/*void setTitle(string race) { this->m_tClass = race; }*/
+	/*virtual string getName()const { return m_tClass + "" + Character::getName(); }*/
 	string getAbility() { return m_tAbility; }
 	string getAttack() { return m_tAttack; }
 	string getStats() { return m_tStats; }
