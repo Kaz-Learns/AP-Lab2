@@ -12,6 +12,7 @@ private:
 	int m_weaponRange;
 	int m_weaponHandling;
 	int m_weaponReload;
+	int m_weaponRpm;
 	string m_weaponName;
 	string m_weaponDisc;
 	string m_speacialAbility;
@@ -21,7 +22,7 @@ public:
 	{
 		return m_weaponName;
 	}
-	Weapon(string wn, string wd, string sa, int dm, int stab, int range, int handle, int reload)
+	Weapon(string wn, string wd, string sa, int dm, int stab, int range, int handle, int reload, int rpm)
 	{
 		m_weaponName = wn;
 		m_weaponDisc = wd;
@@ -31,6 +32,7 @@ public:
 		m_weaponRange = range;
 		m_weaponHandling = handle;
 		m_weaponReload = reload;
+		m_weaponRpm = rpm;
 	}
 	friend ostream& operator<<(ostream& out, const Weapon& W) 
 	{
@@ -42,6 +44,7 @@ public:
 			<< "Stability: " << W.m_weaponStability << endl
 			<< "Handling: " << W.m_weaponHandling << endl
 			<< "Reload: " << W.m_weaponReload << endl
+			<< "Rounds Per Minute: " << W.m_weaponRpm << endl
 			<< " \n" << endl;
 		return out;
 	}

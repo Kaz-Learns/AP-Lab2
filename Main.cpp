@@ -20,16 +20,16 @@ int main()
 	Weapon* pWeapon[4]
 	{ pWeapon[0] = new Weapon("Hawkmoon", "Stalk thy prey and let loose thy talons upon the Darkness",
 	"Paracasual Shot: Headshots grant stacks of Paracausal shot which increases weapon stability and range. The final shot of the magazine does bonus damage based on the amount of stacks.",
-	70,30,20,20,20),
+	78,76,55,83,63, 140),
 	pWeapon[1] = new Weapon("Thorn", "To rend one's enemies is to see them not as equals, but objects-hollow of spirit and meaning",
 	"Mark of the Devourer: Shots have a burning effect on target, you gain a damage bonus after defeating an enemy with this weapon.",
-	70, 30, 20, 20, 20),
+	84, 60, 41, 68, 46, 150),
 	pWeapon[2] = new Weapon("Ace of Spades", "Folding was never and option. -Cayde-6",
 	"Memento Mori: Upon defeating an enemy with this weapon and reloading gain 6 shots of memento mori. Shots with this perk active deal more damage and have longer range.",
-	70, 30, 20, 20, 20),
+	84, 46, 78, 46, 48, 140),
 	pWeapon[3] = new Weapon("The Last Word", "Yours, until the last flame dies and all words have been spoken.",
 	"Fan Fire: Increased accuracy when firing at the hip, weapon fires in full auto",
-	70, 30, 20, 20, 20) };
+	78, 46, 28, 28, 82, 225) };
 
 	
 	int characterCount = 0;
@@ -65,7 +65,7 @@ int main()
 				int hweaponSelectMenu;
 				string hname;
 				
-				cout << "Enter your Hunters name: " << endl;
+				cout << "Enter your Hunter's name: " << endl;
 				cin >> hname;
 				
 				cout << "Select a weapon: " << endl;
@@ -122,7 +122,7 @@ int main()
 				int tweaponSelectMenu;
 				string hname;
 
-				cout << "Enter your Hunters name: " << endl;
+				cout << "Enter your Titan's name: " << endl;
 				cin >> hname;
 
 				cout << "Select a weapon: " << endl;
@@ -255,7 +255,7 @@ int main()
 
 			for (int i = 0; i < characterCount; i++)
 			{
-				if (i >= characterCount)
+				if (i < characterCount)
 				{
 					cout << "Would you like to delete this character? " << endl;
 					cout << "1. Yes " << endl;
