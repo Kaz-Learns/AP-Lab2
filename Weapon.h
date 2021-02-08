@@ -18,10 +18,7 @@ private:
 	string m_speacialAbility;
 
 public:
-	string getWeaponName() 
-	{
-		return m_weaponName;
-	}
+	
 	Weapon(string wn, string wd, string sa, int dm, int stab, int range, int handle, int reload, int rpm)
 	{
 		m_weaponName = wn;
@@ -33,6 +30,10 @@ public:
 		m_weaponHandling = handle;
 		m_weaponReload = reload;
 		m_weaponRpm = rpm;
+	}
+	string getWeaponName()
+	{
+		return m_weaponName;
 	}
 	friend ostream& operator<<(ostream& out, const Weapon& W) 
 	{

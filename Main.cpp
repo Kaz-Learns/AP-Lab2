@@ -287,14 +287,11 @@ int main()
 			gameRunning = false;
 			return 0;
 		}
-
-		cout << "Welcome to the Tower Gaurdian! It is time to pick your class and your first exotic weapon." << endl;
-
-
+		else
+		{
+			cout << "Invalid selection..." << endl;
+		}
 
 	}
 
-	
-
-	
 }
