@@ -10,24 +10,30 @@ using namespace std;
 
 int main()
 {
-	Titan* titan = new Titan[5];
+	const int NUM_CHARACTERS = 50;
+	Character* pCharacter[NUM_CHARACTERS];
+	
+	/*Titan* titan = new Titan[5];
 	Hunter* hunter = new Hunter[5];
-	Warlock* warlock = new Warlock[5];
+	Warlock* warlock = new Warlock[5];*/
 	
+	Weapon* pWeapon[4]
+	{ pWeapon[0] = new Weapon("Hawkmoon", "Stalk thy prey and let loose thy talons upon the Darkness",
+	"Paracasual Shot: Headshots grant stacks of Paracausal shot which increases weapon stability and range. The final shot of the magazine does bonus damage based on the amount of stacks.",
+	70,30,20,20,20),
+	pWeapon[1] = new Weapon("Thorn", "To rend one's enemies is to see them not as equals, but objects-hollow of spirit and meaning",
+	"Mark of the Devourer: Shots have a burning effect on target, you gain a damage bonus after defeating an enemy with this weapon.",
+	70, 30, 20, 20, 20),
+	pWeapon[2] = new Weapon("Ace of Spades", "Folding was never and option. -Cayde-6",
+	"Memento Mori: Upon defeating an enemy with this weapon and reloading gain 6 shots of memento mori. Shots with this perk active deal more damage and have longer range.",
+	70, 30, 20, 20, 20),
+	pWeapon[3] = new Weapon("The Last Word", "Yours, until the last flame dies and all words have been spoken.",
+	"Fan Fire: Increased accuracy when firing at the hip, weapon fires in full auto",
+	70, 30, 20, 20, 20) };
 
-	Weapon Hawkmoon { "Hawkmoon", "Stalk thy prey and let loose thy talons upon the Darkness",
-		"Paracasual Shot: Headshots grant stacks of Paracausal shot which increases weapon stability and range. The final shot of the magazine does bonus damage based on the amount of stacks.",
-		70,30,20,20,20 };
-	Weapon Thorn ("Thorn", "To rend one's enemies is to see them not as equals, but objects-hollow of spirit and meaning",
-		"Mark of the Devourer: Shots have a burning effect on target, you gain a damage bonus after defeating an enemy with this weapon.",
-		70, 30, 20, 20, 20);
-	Weapon Ace("Ace of Spades", "Folding was never and option. -Cayde-6",
-		"Memento Mori: Upon defeating an enemy with this weapon and reloading gain 6 shots of memento mori. Shots with this perk active deal more damage and have longer range.",
-		70, 30, 20, 20, 20);
-	Weapon TLW("The Last Word", "Yours, until the last flame dies and all words have been spoken.",
-		"Fan Fire: Increased accuracy when firing at the hip, weapon fires in full auto",
-		70, 30, 20, 20, 20);
 	
+	int characterCount = 0;
+
 	bool gameRunning = true;
 
 	while (gameRunning)
@@ -43,6 +49,8 @@ int main()
 
 		if (mainMenuSelect == 1)
 		{
+			system("CLS");
+
 			int createMenuselect;
 
 			cout << "Welcome to the Tower Gaurdian! It is time to pick your class and your first exotic weapon." << endl;
@@ -54,25 +62,224 @@ int main()
 
 			if (createMenuselect == 1)
 			{
+				int hweaponSelectMenu;
 				string hname;
+				
 				cout << "Enter your Hunters name: " << endl;
 				cin >> hname;
-				hunter[0].setName(hname);
-				cout << "These are you hunters abilities: " << endl;
-				cout << "Player class and name: " << hunter[0].getClass() << " " << hunter[0].getName();
-				cout << "Unique ability: " << hunter[0].getAbility() << endl;
-				cout << "Unique attack: " << hunter[0].getAttack() << endl;
-				cout << " " << endl;
-			}
+				
+				cout << "Select a weapon: " << endl;
+				cout << "1. Hawkmoon" << "\n" << endl;
+				cout << "2. Thorn" << "\n" << endl;
+				cout << "3. Ace of Spades" << "\n" << endl;
+				cout << "4. The Last Word" << "\n" << endl;
+				cin >> hweaponSelectMenu;
+				if (hweaponSelectMenu == 1)
+				{
+					
+					pCharacter[characterCount] = new Hunter(hname, pWeapon[0], "Hunter");
+					cout << *pWeapon[0];
+					characterCount++;
+				}
+				else if (hweaponSelectMenu == 2)
+				{
+					
+					pCharacter[characterCount] = new Hunter(hname, pWeapon[1], "Hunter");
+					cout << *pWeapon[1];
+					characterCount++;
+					
+				}
+				else if (hweaponSelectMenu == 3)
+				{
+					
+					pCharacter[characterCount] = new Hunter(hname, pWeapon[2], "Hunter");
+					cout << *pWeapon[2];
+					characterCount++;
+				}
+				else if (hweaponSelectMenu == 4)
+				{
+					
+					pCharacter[characterCount] = new Hunter(hname, pWeapon[3], "Hunter");
+					cout << *pWeapon[3];
+					characterCount++;
+				}
+				else
+				{
+					cout << "Invalid selection... You will be assigned a Hawkmoon" << endl;
+					hweaponSelectMenu = 1;
+				}
+				cout << "Player class and name: " << pCharacter[characterCount - 1]->getName() << endl;
 
+				cout << "These are you hunters abilities: " << endl;
+				pCharacter[characterCount - 1]->DisplayInfo();
+
+			}
+			else if (createMenuselect == 2)
+			{
+				system("CLS");
+
+				//Titan creation
+				int tweaponSelectMenu;
+				string hname;
+
+				cout << "Enter your Hunters name: " << endl;
+				cin >> hname;
+
+				cout << "Select a weapon: " << endl;
+				cout << "1. Hawkmoon" << "\n" << endl;
+				cout << "2. Thorn" << "\n" << endl;
+				cout << "3. Ace of Spades" << "\n" << endl;
+				cout << "4. The Last Word" << "\n" << endl;
+				cin >> tweaponSelectMenu;
+				if (tweaponSelectMenu == 1)
+				{
+
+					pCharacter[characterCount] = new Titan(hname, pWeapon[0], "Titan");
+					cout << *pWeapon[0];
+					characterCount++;
+				}
+				else if (tweaponSelectMenu == 2)
+				{
+
+					pCharacter[characterCount] = new Titan(hname, pWeapon[1], "Titan");
+					cout << *pWeapon[1];
+					characterCount++;
+
+				}
+				else if (tweaponSelectMenu == 3)
+				{
+
+					pCharacter[characterCount] = new Titan(hname, pWeapon[2], "Titan");
+					cout << *pWeapon[2];
+					characterCount++;
+				}
+				else if (tweaponSelectMenu == 4)
+				{
+
+					pCharacter[characterCount] = new Titan(hname, pWeapon[3], "Titan");
+					cout << *pWeapon[3];
+					characterCount++;
+				}
+				else
+				{
+					cout << "Invalid selection... You will be assigned a Hawkmoon" << endl;
+					tweaponSelectMenu = 1;
+				}
+				cout << "Player class and name: " << pCharacter[characterCount - 1]->getName() << endl;
+
+				cout << "These are you hunters abilities: " << endl;
+				pCharacter[characterCount - 1]->DisplayInfo();
+
+			}
+			else if (createMenuselect == 3)
+			{
+				system("CLS");
+
+				int wweaponSelectMenu;
+				string hname;
+
+				cout << "Enter your Warlock's name: " << endl;
+				cin >> hname;
+
+				cout << "Select a weapon: " << endl;
+				cout << "1. Hawkmoon" << "\n" << endl;
+				cout << "2. Thorn" << "\n" << endl;
+				cout << "3. Ace of Spades" << "\n" << endl;
+				cout << "4. The Last Word" << "\n" << endl;
+				cin >> wweaponSelectMenu;
+				if (wweaponSelectMenu == 1)
+				{
+					system("CLS");
+					pCharacter[characterCount] = new Warlock(hname, pWeapon[0], "Warlock");
+					cout << *pWeapon[0];
+					characterCount++;
+				}
+				else if (wweaponSelectMenu == 2)
+				{
+					system("CLS");
+					pCharacter[characterCount] = new Warlock(hname, pWeapon[1], "Warlock");
+					cout << *pWeapon[1];
+					characterCount++;
+
+				}
+				else if (wweaponSelectMenu == 3)
+				{
+					system("CLS");
+					pCharacter[characterCount] = new Warlock(hname, pWeapon[2], "Warlock");
+					cout << *pWeapon[2];
+					characterCount++;
+				}
+				else if (wweaponSelectMenu == 4)
+				{
+					system("CLS");
+					pCharacter[characterCount] = new Warlock(hname, pWeapon[3], "Warlock");
+					cout << *pWeapon[3];
+					characterCount++;
+				}
+				else
+				{
+					system("CLS");
+					cout << "Invalid selection... You will be assigned a Hawkmoon" << endl;
+					wweaponSelectMenu = 1;
+				}
+				cout << "Player class and name: " << pCharacter[characterCount - 1]->getName() << endl;
+
+				cout << "These are you hunters abilities: " << endl;
+				pCharacter[characterCount - 1]->DisplayInfo();
+
+			}
+			else
+			{
+				cout << "Invalid selections" << endl;
+			}
 		}
 
 		if (mainMenuSelect == 2)
 		{
+			system("CLS");
 
+			cout << "Here are you Characters: \n" << endl;
+
+			for (int i = 0; i < characterCount; i++)
+			{
+				pCharacter[i]->DisplayInfo();
+			}
 		}
 		if (mainMenuSelect == 3)
 		{
+			system("CLS");
+			int deleteSelection;
+
+			cout << "Choose Character to delete: " << endl;
+
+
+			for (int i = 0; i < characterCount; i++)
+			{
+				if (i >= characterCount)
+				{
+					cout << "Would you like to delete this character? " << endl;
+					cout << "1. Yes " << endl;
+					cout << "2. No" << endl;
+
+					cout << pCharacter[i]->getName();
+					cin >> deleteSelection;
+
+					if (deleteSelection == 1)
+					{
+						delete pCharacter[i];
+						for (int j = i; j < characterCount; j++)
+						{
+							pCharacter[j] = pCharacter[j + 1];
+						}
+						characterCount--;
+					}
+				}
+				else
+				{
+					cout << "No Characters to delete, create a character first..." << endl;
+				}
+				
+			}
 
 		}
 		if (mainMenuSelect == 4)

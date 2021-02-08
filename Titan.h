@@ -14,17 +14,42 @@ private:
 	string m_tStats = "Plus 20 to resilience";
 
 public:
-	Titan() {};
-	/*Titan(string cname, Weapon w, string race) :Character(cname, w)
+	Titan(string cName, Weapon* w, string race) : Character(cName, w)
 	{
-		setTitle(race);
-	}*/
+		setRace(race);
 
-	/*void setTitle(string race) { this->m_tClass = race; }*/
-	/*virtual string getName()const { return m_tClass + "" + Character::getName(); }*/
-	string getAbility() { return m_tAbility; }
-	string getAttack() { return m_tAttack; }
-	string getStats() { return m_tStats; }
+
+	};
+
+	// Member Functions
+	void setRace(string race)
+	{
+		this->m_tClass = race;
+	}
+
+	string getRace()const
+	{
+		return m_tClass;
+	}
+	string getName() const
+	{
+		return getRace() + " " + Character::getName();
+	}
+	virtual void DisplayInfo() const
+	{
+		cout << "\n " << endl
+			<< "Character Name:  " << Character::getName() << endl
+			<< "Character Class: " << getClass() << endl
+			<< "Special Ability: " << getAbility() << endl
+			<< "Attack:          " << getAttack() << endl
+			<< "Stat Boost:      " << getStats() << endl;
+	}
+
+	// Getters and Setters
+	string getClass() const { return m_tClass; }
+	string getAbility() const { return m_tAbility; }
+	string getAttack() const { return m_tAttack; }
+	string getStats() const { return m_tStats; }
 
 };
 

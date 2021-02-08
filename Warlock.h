@@ -11,12 +11,42 @@ private:
 	string m_wStats = "Plus 20 to recovery";
 
 public:
-	Warlock() {};
-	~Warlock() {};
-	string getClass() { return m_wClass; }
-	string getAbility() { return m_wAbility; }
-	string getAttack() { return m_wAttack; }
-	string getStats() { return m_wStats; }
+	Warlock(string cName, Weapon* w, string race) : Character(cName, w)
+	{
+		setRace(race);
+
+
+	};
+
+	// Member Functions
+	void setRace(string race)
+	{
+		this->m_wClass = race;
+	}
+
+	string getRace()const
+	{
+		return m_wClass;
+	}
+	string getName() const
+	{
+		return getRace() + " " + Character::getName();
+	}
+	virtual void DisplayInfo() const
+	{
+		cout << "\n " << endl
+			<< "Character Name:  " << Character::getName() << endl
+			<< "Character Class: " << getClass() << endl
+			<< "Special Ability: " << getAbility() << endl
+			<< "Attack:          " << getAttack() << endl
+			<< "Stat Boost:      " << getStats() << endl;
+	}
+
+	// Getters and Setters
+	string getClass() const { return m_wClass; }
+	string getAbility() const { return m_wAbility; }
+	string getAttack() const { return m_wAttack; }
+	string getStats() const { return m_wStats; }
 
 };
 

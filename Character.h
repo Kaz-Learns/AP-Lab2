@@ -6,6 +6,7 @@
 #include "Weapon.h"
 
 
+
 using namespace std;
 
 class Character
@@ -15,32 +16,35 @@ private:
 	int m_health = 0;
 	int m_size = 5;
 	Weapon* m_pWeapon;
+		
 
 public:
 	//Constructors
-	Character() {};
-	//Character() { setName(""); }
-	Character(string cName, Weapon w) { setName(cName); }
-
-	void setWeapon(Weapon w)
-	{
-		*m_pWeapon = w;
-	}
-	Weapon getWeapon()
-	{
-		return *m_pWeapon;
+	Character(string cName, Weapon* w) 
+	{ 
+		setName(cName);
+		setWeapon(w);
 	}
 	//member function
-	//virtual void DisplayInfo();
-
+	virtual void DisplayInfo() const = 0; // Pure virtual function
+	
 	//Getters and Setters
 	void setName(string cName) 
 	{ 
 		m_name = cName; 
 	}
-	string getName() const 
+	virtual string getName() const
 	{ 
 		return m_name; 
+	}
+	
+	void setWeapon(Weapon* w)
+	{
+		m_pWeapon = w;
+	}
+	virtual Weapon* getWeapon()
+	{
+		return m_pWeapon;
 	}
 	void setHealth(int health)
 	{
@@ -53,5 +57,7 @@ public:
 
 
 };
+
+
 
 #endif // _CHARACTER_H
